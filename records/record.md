@@ -5,22 +5,51 @@ LSTM 40, LSTM 20, Dropout 0.3, Dense 1(sigmoid), epochs 50, batch_size 120
 LSTM 40, LSTM 20, Dropout 0.3, Dense 1(sigmoid), epochs 100, batch_size 128
 13722 test cases, RMSE 24.125
 
-## 2: 7 * 24h -> 24h, 13495.855s
+## 2: 7 * 24h -> 24h, TPU 13495.855s
 shuffle data (both)
 LSTM 50, LSTM 40, Dropout 0.3, Dense 1(sigmoid), epochs 100, batch_size 128 * 8
 13722 test cases, RMSE 18.212
 
-## 3: 7 * 24h -> 24h, 7309.474s
+## 3: 7 * 24h -> 24h, TPU 7309.474s
 shuffle train only (fit shuffle)
 LSTM 60, Dropout 0.3, LSTM 40, Dropout 0.2, Dense 1(tanh), epochs 80, batch_size 128 * 8 * 16
 12954 test cases, RMSE 31.106
 
-## 4: 7 * 24h -> 24h, 7398.155s
+## 4: 7 * 24h -> 24h, TPU 7398.155s
 shuffle train only (sample, fit shuffle)
 LSTM 50, LSTM 40, Dropout 0.3, Dense 1(sigmoid), epochs 80, batch_size 128 * 8 * 4
 12954 test cases, RMSE 31.566
 
-## 5: 3 * 24h -> 24h, 9080.806s
+> 以上为探索性测试，未控制变量
+
+## 5: 3 * 24h -> 24h, TPU 9080.806s
 no shuffle
 LSTM 40, BidirectionalLSTM 40, Dropout 0.2, Dense 1(sigmoid), epochs 100, batch_size 128 * 8
 18432 test cases, RMSE 18.462
+
+## 6: 3 * 24h -> 24h, TPU 2680.535s
+batch shuffle
+LSTM 40, LSTM 40, Dropout 0.2, Dense 1(sigmoid), epochs 100, batch_size 128 * 8
+18432 test cases, RMSE 17.848
+
+## 7: 3 * 24h -> 24h, TPU 8826.802s
+batch shuffle
+BidirectionalLSTM 40, LSTM 40, Dropout 0.2, Dense 1(sigmoid), epochs 100, batch_size 128 * 8
+18432 test cases, RMSE 18.448
+
+## 8: 3 * 24h -> 24h, TPU 10435.726s
+batch shuffle
+BidirectionalLSTM 40, BidirectionalLSTM 40, Dropout 0.2, Dense 1(sigmoid), epochs 100, batch_size 128 * 8
+18432 test cases, RMSE 18.474
+
+> 5 6 7 8 测试双向，无显著？
+
+## 9: 3 * 24h -> 24h, TPU 5055.57s
+batch shuffle
+GRU 40, GRU 40, Dropout 0.2, Dense 1(sigmoid), epochs 100, batch_size 128 * 8
+18432 test cases, RMSE 17.533
+
+## 10: 3 * 24h -> 24h, TPU 
+batch shuffle
+GRU 80, GRU 80, Dropout 0.2, Dense 1(sigmoid), epochs 500, batch_size 128 * 8
+18432 test cases, RMSE 
