@@ -49,7 +49,17 @@ batch shuffle
 GRU 40, GRU 40, Dropout 0.2, Dense 1(sigmoid), epochs 100, batch_size 128 * 8
 18432 test cases, RMSE 17.533
 
-## 10: 3 * 24h -> 24h, TPU 
+## 10: 3 * 24h -> 24h, TPU 8814.012s
 batch shuffle
-GRU 80, GRU 80, Dropout 0.2, Dense 1(sigmoid), epochs 500, batch_size 128 * 8
-18432 test cases, RMSE 
+BidirectionalGRU 80, GRU 80, Dropout 0.2, Dense 1(sigmoid), epochs 500, batch_size 128 * 8
+18432 test cases, RMSE 17.392
+
+## 11: 3 * 24h -> 24h, TPU 8983.278s
+batch shuffle
+GRU 80, BidirectionalGRU 80, Dropout 0.2, Dense 1(sigmoid), epochs 500, batch_size 128 * 8
+18432 test cases, RMSE 17.971
+
+## 12: 3 * 24h -> 24h, TPU 10647.766s
+batch shuffle
+BidirectionalGRU 80, BidirectionalGRU 80, Dropout 0.2, Dense 1(sigmoid), epochs 500, batch_size 128 * 8
+18432 test cases, RMSE 18.083
