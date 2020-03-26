@@ -27,7 +27,7 @@ no shuffle
 LSTM 40, BidirectionalLSTM 40, Dropout 0.2, Dense 1(sigmoid), epochs 100, batch_size 128 * 8
 18432 test cases, RMSE 18.462
 
-## 6: 3 * 24h -> 24h, TPU 2680.535s
+## 6: 3 * 24h -> 24h, TPU 2680.535s / 7309.293s
 batch shuffle
 LSTM 40, LSTM 40, Dropout 0.2, Dense 1(sigmoid), epochs 100, batch_size 128 * 8
 18432 test cases, RMSE 17.848
@@ -44,22 +44,25 @@ BidirectionalLSTM 40, BidirectionalLSTM 40, Dropout 0.2, Dense 1(sigmoid), epoch
 
 > 5 6 7 8 测试双向，无显著？
 
-## 9: 3 * 24h -> 24h, TPU 5055.57s
+## 9: 3 * 24h -> 24h, TPU 5055.57s / 7389.401s
 batch shuffle
 GRU 40, GRU 40, Dropout 0.2, Dense 1(sigmoid), epochs 100, batch_size 128 * 8
 18432 test cases, RMSE 17.533
 
 ## 10: 3 * 24h -> 24h, TPU 8814.012s
 batch shuffle
-BidirectionalGRU 80, GRU 80, Dropout 0.2, Dense 1(sigmoid), epochs 500, batch_size 128 * 8
+BidirectionalGRU 40, GRU 40, Dropout 0.2, Dense 1(sigmoid), epochs 500, batch_size 128 * 8
 18432 test cases, RMSE 17.392
 
 ## 11: 3 * 24h -> 24h, TPU 8983.278s
 batch shuffle
-GRU 80, BidirectionalGRU 80, Dropout 0.2, Dense 1(sigmoid), epochs 500, batch_size 128 * 8
+GRU 40, BidirectionalGRU 40, Dropout 0.2, Dense 1(sigmoid), epochs 500, batch_size 128 * 8
 18432 test cases, RMSE 17.971
 
 ## 12: 3 * 24h -> 24h, TPU 10647.766s
 batch shuffle
-BidirectionalGRU 80, BidirectionalGRU 80, Dropout 0.2, Dense 1(sigmoid), epochs 500, batch_size 128 * 8
+BidirectionalGRU 40, BidirectionalGRU 40, Dropout 0.2, Dense 1(sigmoid), epochs 500, batch_size 128 * 8
 18432 test cases, RMSE 18.083
+
+> 9 10 11 12 测试 GRU 双向，参数减少但速度未变？
+
