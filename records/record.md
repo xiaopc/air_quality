@@ -83,7 +83,19 @@ no shuffle
 GRU 40, GRU 40, Dropout 0.2, Dense 1(sigmoid), epochs 500, batch_size 128 * 8
 18432 test cases, RMSE: 18.784, MAE: 13.139
 
-## 15: 3 * 24h -> 24h, CPU 10429.39s
+## 16: 3 * 24h -> 24h, CPU 10429.39s
 no shuffle
 GRU 80, GRU 80, Dropout 0.2, Dense 1(sigmoid), epochs 500, batch_size 128 * 8
 18432 test cases, RMSE: 24.380, MAE: 17.619
+
+## 17: 3 * 24h -> 24h, CPU 6169.064s
+no shuffle
+GRU 80, GRU 80, Dropout 0.2, Dense 1(sigmoid), epochs 300, batch_size 128 * 8
+18432 test cases, RMSE: 19.306, MAE: 13.686
+
+## 18: 3 * 24h -> 24h, CPU 1268.457s
+no shuffle
+LSTM(0) 40, LSTM(1) 40, Attention(1), Dropout 0.2, Dense 1(sigmoid), epochs 100, batch_size 128 * 8
+18432 test cases, RMSE: 17.741, MAE: 12.798
+
+> 18# 起非序列的 H5 文件需要 2.2.4-tf 才能加载
