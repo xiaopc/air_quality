@@ -97,5 +97,42 @@ GRU 80, GRU 80, Dropout 0.2, Dense 1(sigmoid), epochs 300, batch_size 128 * 8
 no shuffle
 LSTM(0) 40, LSTM(1) 40, Attention(1), Dropout 0.2, Dense 1(sigmoid), epochs 100, batch_size 128 * 8
 18432 test cases, RMSE: 17.741, MAE: 12.798
+**保存的模型错误的加上了 batch_size，无法用于预测**
 
-> 18# 起非序列的 H5 文件需要 2.2.4-tf 才能加载
+> 18# 起非序列的 H5 文件需要 2.2.4-tf(对应 tf 版本 2.2.0-rc1) 才能加载
+
+## 19: 3 * 24h -> 24h, CPU 1926.252s
+no shuffle
+LSTM(0) 40, LSTM(1) 40, Attention(1), Dropout 0.2, Dense 1(sigmoid), epochs 160, batch_size 128 * 8
+18432 test cases, RMSE: 17.906, MAE: 12.957
+
+## 20: 3 * 24h -> 24h, CPU 1040.736s
+no shuffle
+GRU(0) 40, GRU(1) 40, Attention(1), Dropout 0.2, Dense 1(sigmoid), epochs 100, batch_size 128 * 8
+18432 test cases, RMSE: 28.243, MAE: 18.825
+**欠拟合**
+
+## 21: 3 * 24h -> 24h, CPU 2067.215s
+no shuffle
+GRU(0) 40, GRU(1) 40, Attention(1), Dropout 0.2, Dense 1(sigmoid), epochs 200, batch_size 128 * 8
+18432 test cases, RMSE: 17.543, MAE: 12.416
+
+## 22: 3 * 24h -> 24h, CPU 2713.251s
+no shuffle
+LSTM(0_seq, 0_mem) 40, LSTM(1) 40, Attention(1, 0_seq), Dropout 0.2, Dense 1(sigmoid), epochs 200, batch_size 128 * 8
+18432 test cases, RMSE: 18.644, MAE: 13.307
+
+## 23: 3 * 24h -> 24h, CPU 1402.503s
+no shuffle
+LSTM(0_seq, 0_mem) 40, LSTM(1) 40, Attention(1, 0_seq), Dropout 0.2, Dense 1(sigmoid), epochs 80, batch_size 128
+18432 test cases, RMSE: 17.872, MAE: 12.739
+
+## 24: 3 * 24h -> 24h, CPU 3045.279s
+no shuffle
+LSTM(0) 40, LSTM(1) 40, Attention(1), Dropout 0.2, Dense 1(sigmoid), epochs 200, batch_size 128
+18432 test cases, RMSE: 20.391, MAE: 14.186
+
+## 25: 3 * 24h -> 24h, CPU 2928.181s
+no shuffle
+LSTM 40, LSTM 40, Dropout 0.2, Dense 1(sigmoid), epochs 200, batch_size 128
+18432 test cases, RMSE: 21.640, MAE: 14.902
