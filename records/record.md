@@ -136,3 +136,8 @@ LSTM(0) 40, LSTM(1) 40, Attention(1), Dropout 0.2, Dense 1(sigmoid), epochs 200,
 no shuffle
 LSTM 40, LSTM 40, Dropout 0.2, Dense 1(sigmoid), epochs 200, batch_size 128
 18432 test cases, RMSE: 21.640, MAE: 14.902
+
+## 26: 3 * 24h -> 24h, CPU 1151.052s
+no shuffle
+GRU(0_seq, 0_mem) 40, GRU(1) 40, Attention(1, 0_seq), Dropout 0.2, Dense 1(sigmoid), epochs 80, batch_size 128
+18432 test cases, RMSE: 18.251, MAE: 13.093
