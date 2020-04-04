@@ -7,3 +7,4 @@ model #19: RMSE: 15.983, MAE: 12.967
 weather  : RMSE: 24.984, MAE: 19.493
 model #19: RMSE: 17.236, MAE: 13.612
 model #21: RMSE: 17.224, MAE: 13.502
+model #30: RMSE: 16.514, MAE: 12.675

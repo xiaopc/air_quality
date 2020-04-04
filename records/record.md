@@ -141,3 +141,10 @@ LSTM 40, LSTM 40, Dropout 0.2, Dense 1(sigmoid), epochs 200, batch_size 128
 no shuffle
 GRU(0_seq, 0_mem) 40, GRU(1) 40, Attention(1, 0_seq), Dropout 0.2, Dense 1(sigmoid), epochs 80, batch_size 128
 18432 test cases, RMSE: 18.251, MAE: 13.093
+
+## 27: 3 * 24h -> 24h, CPU 1342.662s
+no shuffle
+GRU(0) 40, GRU(1) 40, Attention(1), Dropout 0.2, Dense 1(sigmoid), epochs 100, batch_size 128
+18432 test cases, RMSE: 18.868, MAE: 14.071
+
+> 27# 起的 Scaler 均为自实现 Scaler！

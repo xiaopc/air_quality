@@ -2,3 +2,4 @@ air_city*
 weather.com.cn/*
 .ipynb*
 log/*
+__pycache__/*
